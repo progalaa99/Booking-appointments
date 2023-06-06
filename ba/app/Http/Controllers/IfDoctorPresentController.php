@@ -9,11 +9,16 @@ class IfDoctorPresentController extends Controller
 {
     /**
      * Display a listing of the resource.
+     * ['days','start_time','end_time'];
+
      */
     public function index()
     {
-        $data = ifdoctorpresent::get();
-        dd($data);
+        $days = ifdoctorpresent::get();
+        $start_time= ifdoctorpresent::select( 'start_time')->get();
+        $end_time = ifdoctorpresent::select('end_time')->get();
+        return view('doctorpresent.index',['days'=>$days,'start_time'=>$start_time,'end_time'=>$end_time]);
+
     }
 
     /**
