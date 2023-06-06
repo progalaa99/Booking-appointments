@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class ifdoctorpresent extends Model
 {
     use HasFactory;
+    protected $fillable = ['days','start_time','end_time'];
 }

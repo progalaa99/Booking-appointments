@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\ifdoctorpresent;
 
 class IfDoctorPresentController extends Controller
 {
@@ -11,7 +12,8 @@ class IfDoctorPresentController extends Controller
      */
     public function index()
     {
-        //
+        $data = ifdoctorpresent::get();
+        dd($data);
     }
 
     /**
