@@ -2,6 +2,13 @@
 <h1>{{ $start_time }}</h1>
 <form method="POST" action="{{route('store')}}" method="POST">
     @csrf
+    <label for="">
+        <select name="day" id="">
+            @foreach ($days as $day)
+             <option value="{{$day->days}}">{{$day->days}}</option>
+            @endforeach
+    </select>
+    </label>
     <label for="time">Enter Time:</label>
     <input type="time" name="time" id="time-select" value="15:00" min="15:00" max="20:00" required>
     

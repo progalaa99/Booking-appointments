@@ -37,6 +37,7 @@ class IfDoctorPresentController extends Controller
     {
         
         $timeSelected = $request->time;
+        $daySelected = $request->day;
         $start_time = ifdoctorpresent::select('start_time')->first();
         $end_time = ifdoctorpresent::select('end_time')->first();
 
