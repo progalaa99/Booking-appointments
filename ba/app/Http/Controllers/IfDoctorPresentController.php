@@ -50,31 +50,17 @@ class IfDoctorPresentController extends Controller
              echo "The selected time is valid.";
              $chaktime = Schedule::where('days', $daySelected)->where('time', $timeSelected)->exists();
             
-             if(!$chaktime) {
-             $Schedule = Schedule::create([
-                // dd('ha'),
-                'days' => $request->day,
-                'time' => $request->time,
-               
-            ]);
-            
-        } else  echo 'The time is reserved';
-         } else {
+                if(!$chaktime) {
+                    $Schedule = Schedule::create([
+                        'days' => $request->day,
+                        'time' => $request->time,
+                    ]);
+                } 
+                else  echo 'The time is reserved';
+        } 
+        else {
         echo "The selected time is not valid.";
-          }
-          
-        // $request->validate([
-            
-        //     'days' => 'required',
-        //     'time' => 'required'
-        // ]);
-        
-        // $Schedule = Schedule::create([
-        //     // dd('ha'),
-        //     'days' => $request->day,
-        //     'time' => $request->time,
-           
-        // ]);
+        }
 
         return 'ok';
 
