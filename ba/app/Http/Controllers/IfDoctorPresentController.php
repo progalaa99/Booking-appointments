@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\ifdoctorpresent;
+use App\Models\Schedule;
 use Carbon\Carbon;
 
 class IfDoctorPresentController extends Controller
@@ -47,9 +48,35 @@ class IfDoctorPresentController extends Controller
 
         if ($selectedDateTime->between($startDateTime, $endDateTime)) {
              echo "The selected time is valid.";
+             $chaktime = Schedule::where('time', $timeSelected)->first();
+            //  dd($chaktime);
+             if(!$chaktime) {
+             $Schedule = Schedule::create([
+                // dd('ha'),
+                'days' => $request->day,
+                'time' => $request->time,
+               
+            ]);
+            echo 'The time is reserved';
+        } else echo 'not';
          } else {
-    echo "The selected time is not valid.";
-}
+        echo "The selected time is not valid.";
+          }
+          
+        // $request->validate([
+            
+        //     'days' => 'required',
+        //     'time' => 'required'
+        // ]);
+        
+        // $Schedule = Schedule::create([
+        //     // dd('ha'),
+        //     'days' => $request->day,
+        //     'time' => $request->time,
+           
+        // ]);
+
+        return 'ok';
 
        
 
