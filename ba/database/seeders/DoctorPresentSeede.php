@@ -16,23 +16,23 @@ class DoctorPresentSeede extends Seeder
         DB::table('ifdoctorpresents')->insert([
             [
                 'days' => 'Monday',
-                'start_time' => '16:00:00',
-                'end_time' => '19:00:00',
+                'start_time' => '15:00',
+                'end_time' => '20:00',
             ],
             [
                 'days' => 'Tuesday',
-                'start_time' => '16:00:00',
-                'end_time' => '19:00:00',
+                'start_time' => '15:00',
+                'end_time' => '20:00',
             ],
             [
                 'days' => 'Tuesday',
-                'start_time' => '16:00:00',
-                'end_time' => '19:00:00',
+                'start_time' => '15:00',
+                'end_time' => '20:00',
             ],
             [
                 'days' => 'Thursday',
-                'start_time' => '16:00:00',
-                'end_time' => '19:00:00',
+                'start_time' => '15:00',
+                'end_time' => '20:00',
             ],
            
            
