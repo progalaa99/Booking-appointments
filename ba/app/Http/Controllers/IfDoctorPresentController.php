@@ -48,8 +48,8 @@ class IfDoctorPresentController extends Controller
 
         if ($selectedDateTime->between($startDateTime, $endDateTime)) {
              echo "The selected time is valid.";
-             $chaktime = Schedule::where('time', $timeSelected)->first();
-            //  dd($chaktime);
+             $chaktime = Schedule::where('days', $daySelected)->where('time', $timeSelected)->exists();
+            
              if(!$chaktime) {
              $Schedule = Schedule::create([
                 // dd('ha'),
@@ -57,8 +57,8 @@ class IfDoctorPresentController extends Controller
                 'time' => $request->time,
                
             ]);
-            echo 'The time is reserved';
-        } else echo 'not';
+            
+        } else  echo 'The time is reserved';
          } else {
         echo "The selected time is not valid.";
           }
