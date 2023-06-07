@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('schedule', function (Blueprint $table) {
             $table->id();
+            $table->string('days');
+            $table->string('time');
+
             $table->timestamps();
         });
     }
