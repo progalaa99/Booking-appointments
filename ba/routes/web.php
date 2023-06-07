@@ -27,3 +27,4 @@ Route::middleware([
     })->name('dashboard');
 });
 Route::get('/index', [App\Http\Controllers\IfDoctorPresentController::class, 'index'])->name('index');
+Route::post('/store', [App\Http\Controllers\IfDoctorPresentController::class, 'store'])->name('store');

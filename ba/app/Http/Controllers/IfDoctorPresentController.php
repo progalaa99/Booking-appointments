@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\ifdoctorpresent;
+use Carbon\Carbon;
 
 class IfDoctorPresentController extends Controller
 {
@@ -34,7 +35,24 @@ class IfDoctorPresentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        $timeSelected = $request->time;
+        $start_time = ifdoctorpresent::select('start_time')->first();
+        $end_time = ifdoctorpresent::select('end_time')->first();
+
+        $startDateTime = Carbon::parse($start_time->start_time);
+        $endDateTime = Carbon::parse($end_time->end_time);
+        $selectedDateTime = Carbon::parse($timeSelected);
+
+        if ($selectedDateTime->between($startDateTime, $endDateTime)) {
+             echo "The selected time is valid.";
+         } else {
+    echo "The selected time is not valid.";
+}
+
+       
+
+        
     }
 
     /**
