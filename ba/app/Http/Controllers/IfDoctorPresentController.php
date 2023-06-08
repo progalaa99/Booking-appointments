@@ -54,6 +54,8 @@ class IfDoctorPresentController extends Controller
                     $Schedule = Schedule::create([
                         'days' => $request->day,
                         'time' => $request->time,
+                        'name' => $request->name,
+                        'email' => $request->email,
                     ]);
                 } 
                 else  echo 'The time is reserved';

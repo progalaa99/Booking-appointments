@@ -11,6 +11,8 @@
     </label>
     <label for="time">Enter Time:</label>
     <input type="time" name="time" id="time-select" value="15:00" min="15:00" max="20:00" required>
+    <input type="text" name="name">
+    <input type="email" name="email">
     
     <button type="submit">Save</button>
 </form>

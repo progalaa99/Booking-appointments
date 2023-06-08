@@ -28,3 +28,7 @@ Route::middleware([
 });
 Route::get('/index', [App\Http\Controllers\IfDoctorPresentController::class, 'index'])->name('index');
 Route::post('/store', [App\Http\Controllers\IfDoctorPresentController::class, 'store'])->name('store');
+
+
+Route::get('/index.s', [App\Http\Controllers\ScheduleController::class, 'index'])->name('index.s');
+
