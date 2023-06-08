@@ -31,4 +31,7 @@ Route::post('/store', [App\Http\Controllers\IfDoctorPresentController::class, 's
 
 
 Route::get('/index.s', [App\Http\Controllers\ScheduleController::class, 'index'])->name('index.s');
+Route::get('/edit.s/{id}', [App\Http\Controllers\ScheduleController::class, 'edit'])->name('edit.s');
+Route::get('/update.s/{id}', [App\Http\Controllers\ScheduleController::class, 'update'])->name('update.s');
+Route::get('/destroy.s/{id}', [App\Http\Controllers\ScheduleController::class, 'destroy'])->name('destroy.s');
 

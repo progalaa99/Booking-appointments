@@ -13,8 +13,8 @@ class ScheduleController extends Controller
      */
     public function index()
     {
-        $schedule = Schedule::get();
-        return $schedule;
+        $schedules = Schedule::get();
+        return view('schedule.index',['schedules'=>$schedules]);
     }
 
     /**
@@ -46,7 +46,8 @@ class ScheduleController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $schedule =Schedule::find($id);
+        return view('schedule.edit',compact('schedule'));
     }
 
     /**
@@ -54,14 +55,25 @@ class ScheduleController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $schedule=Schedule::find($id);
+        $schedule->name = $request->name;
+        $schedule->email = $request->email;
+        $schedule->days = $request->days;
+        $schedule->time = $request->time;
+        
+        
+        $blogsupport->update();      
+        return redirect()->route('schedule.index');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy( $id)
     {
-        //
+        $schedule =Schedule::find($id);
+
+        $schedule->delete();
+        return view('schedule.index');
     }
 }
