@@ -19,5 +19,10 @@ use Laravel\Jetstream\Http\Controllers\AuthenticatedSessionController;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::get('/index', [App\Http\Controllers\IfDoctorPresentController::class, 'index'])->name('index');
+Route::post('/store', [App\Http\Controllers\IfDoctorPresentController::class, 'store'])->name('store');
+
+Route::get('/destroy.s/{id}', [App\Http\Controllers\ScheduleController::class, 'destroy'])->name('destroy.s');
+
 
 
